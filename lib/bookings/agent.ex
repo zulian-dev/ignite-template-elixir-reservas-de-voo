@@ -22,6 +22,10 @@ defmodule Flightex.Bookings.Agent do
     Agent.get(__MODULE__, &get_booking(&1, id))
   end
 
+  def list_all do
+    Agent.get(__MODULE__, & &1)
+  end
+
   defp get_booking(state, id) do
     case Map.get(state, id) do
       nil -> {:error, "Booking not found"}

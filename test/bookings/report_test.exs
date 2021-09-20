@@ -1,33 +1,36 @@
 # Este teste é opcional, mas vale a pena tentar e se desafiar 😉
 
-# defmodule Flightex.Bookings.ReportTest do
-#   use ExUnit.Case, async: true
+defmodule Flightex.Bookings.ReportTest do
+  use ExUnit.Case, async: true
 
-#   alias Flightex.Bookings.Report
+  alias Flightex.Bookings.Report
 
-#   describe "generate/1" do
-#     setup do
-#       Flightex.start_agents()
+  @filename "report-test.csv"
 
-#       :ok
-#     end
+  describe "generate/1" do
+    setup do
+      Flightex.start_agents()
 
-#     test "when called, return the content" do
-#       params = %{
-#         complete_date: ~N[2001-05-07 12:00:00],
-#         local_origin: "Brasilia",
-#         local_destination: "Bananeiras",
-#         user_id: "12345678900",
-#         id: UUID.uuid4()
-#       }
+      :ok
+    end
 
-#       content = "12345678900, Brasilia, Bananeiras,2001-5-7 12:00:00"
+    test "when called, return the content" do
+      params = %{
+        complete_date: ~N[2001-05-07 12:00:00],
+        local_origin: "Brasilia",
+        local_destination: "Bananeiras",
+        user_id: "12345678900",
+        id: UUID.uuid4()
+      }
 
-#       Flightex.create_or_update_booking(params)
-#       Report.generate("report-test.csv")
-#       {:ok, file} = File.read("report-test.csv")
+      content = "12345678900,Brasilia,Bananeiras,2001-05-07 12:00:00"
 
-#       assert file =~ content
-#     end
-#   end
-# end
+      Flightex.create_or_update_booking(params)
+      Report.generate(@filename)
+      {:ok, file} = File.read(@filename)
+      File.rm(@filename)
+
+      assert file =~ content
+    end
+  end
+end
