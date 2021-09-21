@@ -3,8 +3,6 @@ defmodule Flightex.Bookings.CreateOrUpdateTest do
 
   alias Flightex.Bookings.{Agent, CreateOrUpdate}
 
-  import Flightex.Factory
-
   describe "call/1" do
     setup do
       Agent.start_link(%{})

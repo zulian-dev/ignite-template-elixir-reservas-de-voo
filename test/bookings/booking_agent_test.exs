@@ -4,7 +4,6 @@ defmodule Flightex.Bookings.AgentTest do
   import Flightex.Factory
 
   alias Flightex.Bookings.Agent, as: BookingsAgent
-  alias Flightex.Bookings.CreateOrUpdate, as: CreateOrUpdateBooking
 
   describe "save/1" do
     setup do
