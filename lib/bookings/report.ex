@@ -23,4 +23,22 @@ defmodule Flightex.Bookings.Report do
        ) do
     "#{user_id},#{local_origin},#{local_destination},#{NaiveDateTime.to_string(complete_date)}"
   end
+
+  def generate_report(filename, from_date, to_date) do
+    report =
+      BookingAgent.list_all()
+      |> Enum.filter(&generate_report_filter_date(&1, from_date, to_date))
+      |> Enum.map(&build_report_row/1)
+
+    File.write!(filename, report)
+  end
+
+  defp generate_report_filter_date(
+         {_id, %Booking{complete_date: complete_date}},
+         from_date,
+         to_date
+       ) do
+    NaiveDateTime.compare(from_date, complete_date) == :lt and
+      NaiveDateTime.compare(to_date, complete_date) == :gt
+  end
 end
