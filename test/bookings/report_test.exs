@@ -39,10 +39,6 @@ defmodule Flightex.Bookings.ReportTest do
     setup do
       Flightex.start_agents()
 
-      :ok
-    end
-
-    test "when twoo dates has given, return the report with flighs btween dates" do
       :booking
       |> build(
         complete_date: ~N[2001-10-08 15:30:00],
@@ -75,18 +71,34 @@ defmodule Flightex.Bookings.ReportTest do
       )
       |> Flightex.create_or_update_booking()
 
+      :ok
+    end
+
+    test "generate report whth dates interfal filter" do
+      response =
+        Report.generate_report(
+          @filename,
+          ~N[2001-01-01 00:00:00],
+          ~N[2004-01-01 00:00:00]
+        )
+
+      expected_response = {:ok, "Report generated successfully"}
+
+      File.rm(@filename)
+
+      assert expected_response == response
+    end
+
+    test "when twoo dates has given, return the report with flighs btween dates" do
       Report.generate_report(@filename, ~N[2001-01-01 00:00:00], ~N[2004-01-01 00:00:00])
 
       {:ok, file} = File.read(@filename)
       File.rm(@filename)
 
-      response = file
+      row1 = "12345678900,La Paz, Bolivia,Charlotte, United States,2001-10-08 15:30:00"
+      row2 = "12345678900,San Francisco, United States,Ashgabat, Turkmenistan,2003-12-01 12:20:00"
 
-      expected_response =
-        "12345678900,La Paz, Bolivia,Charlotte, United States,2001-10-08 15:30:00" <>
-          "12345678900,San Francisco, United States,Ashgabat, Turkmenistan,2003-12-01 12:20:00"
-
-      assert response == expected_response
+      assert file =~ row1 and file =~ row2
     end
   end
 end
