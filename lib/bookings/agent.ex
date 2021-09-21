@@ -11,6 +11,8 @@ defmodule Flightex.Bookings.Agent do
     save_handler(response, booking)
   end
 
+  def save(params), do: save_handler({:error, "invalid params"}, params)
+
   defp update_state(state, %Booking{id: id} = booking) do
     Map.put(state, id, booking)
   end

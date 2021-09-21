@@ -3,7 +3,7 @@ defmodule Flightex.Bookings.Booking do
   @enforce_keys @keys
   defstruct @keys
 
-  def build(complete_date, local_origin, local_destination, user_id) do
+  def build(complete_date, local_origin, local_destination, user_id) when is_bitstring(user_id) do
     uuid = UUID.uuid4()
 
     booking = %__MODULE__{
@@ -16,4 +16,7 @@ defmodule Flightex.Bookings.Booking do
 
     {:ok, booking}
   end
+
+  def build(_complete_date, _local_origin, _local_destination, _user_id),
+    do: {:error, "invalid params"}
 end
