@@ -18,13 +18,6 @@
       "test": "test build/4 when all params are valid, returns the user"
     },
     {
-      "describe": "build/4",
-      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_test.exs",
-      "line": 7,
-      "module": "Elixir.Flightex.Bookings.BookingTest",
-      "test": "test build/4 when all params are valid, returns a booking"
-    },
-    {
       "describe": "call/1",
       "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/create_or_update_test.exs",
       "line": 13,
@@ -32,25 +25,18 @@
       "test": "test call/1 when all params are valid, returns a valid tuple"
     },
     {
-      "describe": "save/1",
-      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_agent_test.exs",
-      "line": 15,
-      "module": "Elixir.Flightex.Bookings.AgentTest",
-      "test": "test save/1 when the param are valid, return a booking uuid"
+      "describe": "build/4",
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_test.exs",
+      "line": 7,
+      "module": "Elixir.Flightex.Bookings.BookingTest",
+      "test": "test build/4 when all params are valid, returns a booking"
     },
     {
       "describe": "get/1",
-      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_agent_test.exs",
-      "line": 53,
-      "module": "Elixir.Flightex.Bookings.AgentTest",
-      "test": "test get/1 when the user wasn't found, returns an error"
-    },
-    {
-      "describe": "get/1",
-      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_agent_test.exs",
-      "line": 34,
-      "module": "Elixir.Flightex.Bookings.AgentTest",
-      "test": "test get/1 when the user is found, return a booking"
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/users/user_agent_test.exs",
+      "line": 56,
+      "module": "Elixir.Flightex.Users.AgentTest",
+      "test": "test get/1 when the user is't founded, returns an error"
     },
     {
       "describe": "save/1",
@@ -62,16 +48,44 @@
     {
       "describe": "get/1",
       "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/users/user_agent_test.exs",
-      "line": 56,
-      "module": "Elixir.Flightex.Users.AgentTest",
-      "test": "test get/1 when the user is't founded, returns an error"
-    },
-    {
-      "describe": "get/1",
-      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/users/user_agent_test.exs",
       "line": 43,
       "module": "Elixir.Flightex.Users.AgentTest",
       "test": "test get/1 when the user is found, returns the user"
+    },
+    {
+      "describe": "get/1",
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_agent_test.exs",
+      "line": 53,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test get/1 when the user wasn't found, returns an error"
+    },
+    {
+      "describe": "save/1",
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_agent_test.exs",
+      "line": 15,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test save/1 when the param are valid, return a booking uuid"
+    },
+    {
+      "describe": "get/1",
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/booking_agent_test.exs",
+      "line": 34,
+      "module": "Elixir.Flightex.Bookings.AgentTest",
+      "test": "test get/1 when the user is found, return a booking"
+    },
+    {
+      "describe": "generate_report/2",
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/report_test.exs",
+      "line": 45,
+      "module": "Elixir.Flightex.Bookings.ReportTest",
+      "test": "test generate_report/2 when twoo dates has given, return the report with flighs btween dates"
+    },
+    {
+      "describe": "generate/1",
+      "file": "/home/zulian/git/rocketseat/ignite-template-elixir-reservas-de-voo/test/bookings/report_test.exs",
+      "line": 18,
+      "module": "Elixir.Flightex.Bookings.ReportTest",
+      "test": "test generate/1 when called, return the content"
     },
     {
       "describe": "call/1",
