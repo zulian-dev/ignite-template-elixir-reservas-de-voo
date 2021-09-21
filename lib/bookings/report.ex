@@ -31,6 +31,7 @@ defmodule Flightex.Bookings.Report do
       |> Enum.map(&build_report_row/1)
 
     File.write!(filename, report)
+    {:ok, "Report generated successfully"}
   end
 
   defp generate_report_filter_date(
